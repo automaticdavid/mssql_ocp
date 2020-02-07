@@ -1,0 +1,17 @@
+---
+- name: Delete ec2 infra of a given scope
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+  
+    - name: Include role tasks to delete ec2 instances
+      include_role: 
+        name: ec2
+        tasks_from: ec2_delete
+
+    - name: Include role tasks to delete ec2 Lab
+      include_role: 
+        name: ec2
+        tasks_from: ec2_env_destroy

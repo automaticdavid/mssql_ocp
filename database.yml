@@ -1,0 +1,23 @@
+
+---
+- name: Install & Configure MSSQL
+  hosts: all
+  gather_facts: yes
+  become: yes
+
+  vars:
+    rhn_username: "{{ rhsm_username }}"
+    rhn_password: "{{ rhsm_password }}"
+    rh_poolid: "{{ rhpoolid }}"
+
+  tasks:
+
+    - name: Including EAP role 
+      include_role:
+        name: eap_mssql
+      vars:
+        install_java: no
+        db_name: monolith
+        db_creation_date: "{{ ansible_date_time.date }}"
+        db_project: "project_{{scope}}"
+        db_user: sa

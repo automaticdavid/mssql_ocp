@@ -1,0 +1,69 @@
+
+---
+
+- name: EAP actions
+  hosts: tag_Name_eap
+  become: yes
+  
+  tasks: 
+
+    - set_fact:
+        ansible_pkg_mgr: 'yum'
+        jboss_java_pkg_name: 'java-1.8.0-openjdk-devel'
+        jboss_eap_library_dest_dir: '/opt/jboss-as'
+        jboss_eap_service_file: "jboss-standalone"
+
+    - name: Stop JBOSS
+      service: 
+        name: "{{ jboss_eap_service_file }}"
+        state: stopped
+      ignore_errors: yes
+
+
+    # - name: Remove Java
+    #   action: "{{ ansible_pkg_mgr }} name={{ jboss_java_pkg_name }} state=absent"
+  
+    # - name: Remove Unzip
+    #   action: "{{ ansible_pkg_mgr }} name=unzip state=absent"
+
+    # - name: Remove EPEL Package
+    #   action: "{{ ansible_pkg_mgr }} name='epel*' state=absent"
+    #   changed_when: False
+
+    - name: Remove JBOSS  
+      file: 
+        path: "{{ jboss_eap_library_dest_dir }}"
+        state: absent
+      ignore_errors: yes
+
+
+    - name: Remove JBoss EAP User
+      user:
+        name: 'jboss-as'
+        state: absent 
+      ignore_errors: yes
+
+
+    - name: Remove JBoss EAP Group
+      group:
+        name: 'jboss_as'
+        state: absent
+      ignore_errors: yes
+
+    
+- name: Remove MS-SQL
+  hosts: tag_Name_mssql
+  become: True
+  gather_facts: yes
+
+  tasks: 
+  
+    - command: sudo systemctl stop mssql-server
+      ignore_errors: yes
+
+  
+    - yum: 
+        name: mssql-server
+        state: absent
+      ignore_errors: yes
+
