@@ -3,9 +3,9 @@
   version: master
   name: ec2
 
-- src: https://github.com/automaticdavid/eap_mssql
+- src: https://github.com/automaticdavid/rhel8_mssql
   version: master
-  name: eap_mssql
+  name: rhel8_mssql
 
 - src: https://github.com/automaticdavid/eap
   version: master

@@ -14,7 +14,7 @@
 
     - name: Including EAP role 
       include_role:
-        name: eap_mssql
+        name: rhel8_mssql
       vars:
         install_java: no
         db_name: monolith
