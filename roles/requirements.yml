@@ -1,16 +1,8 @@
 
-- src: https://github.com/automaticdavid/ec2
-  version: master
-  name: ec2
-
 - src: https://github.com/automaticdavid/rhel8_mssql
   version: master
   name: rhel8_mssql
 
-- src: https://github.com/automaticdavid/eap
-  version: master
-  name: eap
-
-# - src: https://github.com/automaticdavid/hc_vault_mssql_mgmt.git
-#   version: master
-#   name: hc_mssql
+- src: https://github.com/automaticdavid/win-mssql
+  version: devel
+  name: win_mssql
