@@ -4,5 +4,5 @@
   name: rhel8_mssql
 
 - src: https://github.com/automaticdavid/win-mssql
-  version: devel
+  version: master
   name: win-mssql
