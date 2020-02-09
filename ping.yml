@@ -1,0 +1,9 @@
+---
+- name: win_ping
+  hosts: all
+  gather_facts: yes
+  become: yes
+  
+  tasks: 
+  
+    - win_ping: 
