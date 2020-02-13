@@ -1,4 +1,5 @@
 ---
+# Currently lacking functionality in the DSC resource
 - name: Install and Configure MSSQL on Windows hosts
   hosts: all
   tasks:
