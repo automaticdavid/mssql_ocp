@@ -1,0 +1,7 @@
+---
+- name: Install and Configure MSSQL on Windows hosts
+  hosts: all
+  tasks:
+    - name: Including Windows MSSQL role
+      include_role:
+        name: win-mssql

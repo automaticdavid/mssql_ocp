@@ -2,3 +2,6 @@
   version: master
   name: rhel8_mssql
 
+- src: https://github.com/automaticdavid/win-mssql
+  version: master
+  name: win-mssql
